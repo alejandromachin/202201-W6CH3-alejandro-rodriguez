@@ -14,5 +14,9 @@ router.get("/things/:id", async (req, res) => {
   const things = await Thing.findById(id);
   res.json({ things });
 });
-
+router.delete("/things/:id", async (req, res) => {
+  const { id } = req.params;
+  const things = await Thing.findByIdAndDelete(id);
+  res.json({ things });
+});
 module.exports = router;
