@@ -5,6 +5,7 @@ const connectToDatabase = require("./database");
 const initializeServer = require("./server");
 
 const port = process.env.SERVER_PORT || 3001;
+
 const mongoConnectionString = process.env.MONGO_STRING;
 
 (async () => {
