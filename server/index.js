@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const morgan = require("morgan");
-const debug = require("debug")("calculator:root");
+const debug = require("debug")("thingsIAlreadyKnow:root:server");
 
 const app = express();
 
