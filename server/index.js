@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const morgan = require("morgan");
 const debug = require("debug")("thingsIAlreadyKnow:root:server");
+const thingsRouter = require("./routes/thingsRoutes");
 
 const app = express();
 
@@ -21,5 +22,7 @@ const initializeServer = (port) =>
       reject(new Error(`Error on server: ${message}`));
     });
   });
+
+app.use("/thingsialreadyknow", thingsRouter);
 
 module.exports = initializeServer;
