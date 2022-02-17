@@ -7,6 +7,7 @@ const thingsRouter = require("./routes/thingsRoutes");
 const app = express();
 
 app.use(morgan("dev"));
+app.use(express.json());
 
 const initializeServer = (port) =>
   new Promise((resolve, reject) => {
