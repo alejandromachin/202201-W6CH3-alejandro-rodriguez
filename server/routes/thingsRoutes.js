@@ -27,5 +27,11 @@ router.post("/thing", async (req, res) => {
   res.status(201);
   res.json(createdThing);
 });
-
+router.put("/thing/:id", async (req, res) => {
+  const { id } = req.params;
+  const newThing = req.body;
+  const createdThing = await Thing.findByIdAndUpdate(id, newThing);
+  res.status(201);
+  res.json(createdThing);
+});
 module.exports = router;
