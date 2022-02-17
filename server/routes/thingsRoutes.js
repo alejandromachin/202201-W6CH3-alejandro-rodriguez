@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const Thing = require("../../database/models/Thing");
 
 const router = express.Router();
 

@@ -9,6 +9,6 @@ const ThingSchema = new Schema({
     type: String,
   },
 });
-const Thing = model("Thing", ThingSchema, "things");
+const Thing = model("Thing", ThingSchema, "Things");
 
 module.exports = Thing;
