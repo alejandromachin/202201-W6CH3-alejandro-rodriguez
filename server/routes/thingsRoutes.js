@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const Thing = require("../../database/models/Thing");
 const editable = require("../../index");
+const { notAdminError } = require("../middlewares/errors");
 
 const router = express.Router();
 
@@ -16,27 +17,10 @@ router.get("/things/:id", async (req, res) => {
   res.json({ things });
 });
 
-router.delete("/things/:id", async (req, res) => {
-  res.status(404);
-  res.json({
-    error: true,
-    message: "Sorry, you are not alowed to do this.",
-  });
-});
-router.post("/thing", async (req, res) => {
-  res.status(404);
-  res.json({
-    error: true,
-    message: "Sorry, you are not alowed to do this.",
-  });
-});
-router.put("/thing/:id", async (req, res) => {
-  res.status(404);
-  res.json({
-    error: true,
-    message: "Sorry, you are not alowed to do this.",
-  });
-});
+router.delete("/things/:id", notAdminError);
+
+router.post("/thing", notAdminError);
+router.put("/thing/:id", notAdminError);
 
 if (editable) {
   router.delete("/things/:id", async (req, res) => {
