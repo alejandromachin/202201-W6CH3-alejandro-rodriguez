@@ -3,6 +3,7 @@ const express = require("express");
 const morgan = require("morgan");
 const debug = require("debug")("thingsIAlreadyKnow:root:server");
 const thingsRouter = require("./routes/thingsRoutes");
+const { generalError, notFoundError } = require("./middlewares/errors");
 
 const app = express();
 
@@ -25,5 +26,9 @@ const initializeServer = (port) =>
   });
 
 app.use("/thingsialreadyknow", thingsRouter);
+
+app.use(notFoundError);
+
+app.use(generalError);
 
 module.exports = initializeServer;
